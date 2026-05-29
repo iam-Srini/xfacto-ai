@@ -1,0 +1,12 @@
+yfinance
+pandas
+snowflake-connector-python
+python-dotenv
+fastapi
+uvicorn
+streamlit
+requests
+transformers
+torch
+sentence-transformers
+chromadb
