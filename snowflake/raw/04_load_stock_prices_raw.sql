@@ -1,0 +1,16 @@
+INSERT INTO XFACTO_AI.RAW.STOCK_PRICES_RAW
+SELECT
+    'AAPL' AS ticker,
+    TO_DATE($1) AS date,
+    $2::FLOAT AS close,
+    $3::FLOAT AS high,
+    $4::FLOAT AS low,
+    $5::FLOAT AS open,
+    $6::NUMBER AS volume,
+    $7::FLOAT AS daily_return_pct,
+    $8::FLOAT AS ma_20,
+    $9::FLOAT AS ma_50,
+    CURRENT_TIMESTAMP() AS ingestion_time
+FROM @XFACTO_AI.RAW.YAHOO_FINANCE_STAGE/AAPL_1year_data.csv.gz
+    (FILE_FORMAT => XFACTO_AI.RAW.CSV_FILE_FORMAT)
+WHERE $1 IS NOT NULL;
