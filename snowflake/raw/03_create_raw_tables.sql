@@ -1,5 +1,6 @@
 CREATE OR REPLACE TABLE XFACTO_AI.RAW.STOCK_PRICES_RAW (
     ticker STRING,
+    sector STRING,
     date DATE,
     close FLOAT,
     high FLOAT,

@@ -2,6 +2,7 @@ CREATE OR REPLACE TABLE XFACTO_AI.CURATED.STOCK_FEATURES AS
 WITH price_history AS (
     SELECT
         ticker,
+        sector,
         date AS trade_date,
         close AS close_price,
         volume,
@@ -16,6 +17,7 @@ WITH price_history AS (
 
 SELECT
     ticker,
+    sector,
     trade_date,
     close_price,
     previous_close_price,
