@@ -6,7 +6,6 @@ CREATE OR REPLACE TABLE XFACTO_AI.RAW.STOCK_PRICES_RAW (
     low FLOAT,
     open FLOAT,
     volume NUMBER,
-    daily_return_pct FLOAT,
     ma_20 FLOAT,
     ma_50 FLOAT,
     ingestion_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
