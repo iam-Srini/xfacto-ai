@@ -30,3 +30,26 @@ SELECT
     main_topics
 
 FROM XFACTO_AI.MART.STOCK_DAILY_INSIGHTS;
+
+
+-- Grain: one row per ticker.
+-- Business measures assume 250 trading days per year.
+CREATE OR REPLACE TABLE XFACTO_AI.FACT.FACT_STOCK_RISK_METRICS AS
+SELECT
+    ticker AS ticker_key,
+
+    COUNT(*) AS trading_days,
+
+    AVG(daily_return_pct) AS avg_daily_return,
+
+    AVG(daily_return_pct) * 250
+        AS annualized_return,
+
+    STDDEV(daily_return_pct)
+        AS daily_volatility,
+
+    STDDEV(daily_return_pct) * SQRT(250)
+        AS annualized_volatility
+
+FROM XFACTO_AI.CURATED.STOCK_FEATURES
+GROUP BY ticker;
