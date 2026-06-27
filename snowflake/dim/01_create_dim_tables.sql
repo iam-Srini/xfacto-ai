@@ -16,7 +16,8 @@ FROM XFACTO_AI.MART.STOCK_MARKET_INSIGHTS;
 CREATE OR REPLACE TABLE XFACTO_AI.DIM.DIM_TICKER AS
 SELECT DISTINCT
     ticker AS ticker_key,
-    ticker AS ticker_symbol
+    ticker AS ticker_symbol,
+    sector
 FROM XFACTO_AI.MART.STOCK_MARKET_INSIGHTS;
 
 

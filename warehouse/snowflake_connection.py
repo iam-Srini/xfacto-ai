@@ -18,7 +18,7 @@ conn = snowflake.connector.connect(
 cur = conn.cursor()
 
 cur.execute("""
-PUT file://ingestion/AAPL_1year_data.csv
+PUT file://ingestion/stock_prices_1year.csv
 @YAHOO_FINANCE_STAGE
 AUTO_COMPRESS=TRUE
 OVERWRITE=TRUE

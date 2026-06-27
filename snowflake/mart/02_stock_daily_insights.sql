@@ -1,6 +1,7 @@
 CREATE OR REPLACE TABLE XFACTO_AI.MART.STOCK_DAILY_INSIGHTS AS
 SELECT
     s.ticker,
+    s.sector,
     s.trade_date,
     s.close_price,
     s.previous_close_price,
@@ -35,6 +36,7 @@ LEFT JOIN XFACTO_AI.CURATED.NEWS_SENTIMENT n
 
 GROUP BY
     s.ticker,
+    s.sector,
     s.trade_date,
     s.close_price,
     s.previous_close_price,
